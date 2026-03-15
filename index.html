@@ -1046,47 +1046,6 @@
       }
     });
 
-    // File upload interaction
-    document.querySelectorAll('.upload-area').forEach(area => {
-      const input = area.querySelector('input[type="file"]');
-      
-      area.addEventListener('click', () => {
-        input.click();
-      });
-
-      input.addEventListener('change', (e) => {
-        const files = e.target.files;
-        if (files.length > 0) {
-          area.querySelector('.upload-text').innerHTML = 
-            `<strong>${files.length} foto selezionat${files.length > 1 ? 'e' : 'a'}</strong><br>Clicca "Carica Foto" per confermare`;
-        }
-      });
-
-      // Drag and drop
-      area.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        area.style.borderColor = 'var(--magenta)';
-        area.style.background = 'rgba(192,67,122,0.1)';
-      });
-
-      area.addEventListener('dragleave', () => {
-        area.style.borderColor = '';
-        area.style.background = '';
-      });
-
-      area.addEventListener('drop', (e) => {
-        e.preventDefault();
-        area.style.borderColor = '';
-        area.style.background = '';
-        
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-          area.querySelector('.upload-text').innerHTML = 
-            `<strong>${files.length} foto selezionat${files.length > 1 ? 'e' : 'a'}</strong><br>Clicca "Carica Foto" per confermare`;
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
